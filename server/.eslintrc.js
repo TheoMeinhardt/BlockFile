@@ -10,6 +10,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
+  ignorePatterns: ['tsconfig.json', 'truffle-config.js'],
   rules: {
     'linebreak-style': 'off',
     'no-console': 'off',

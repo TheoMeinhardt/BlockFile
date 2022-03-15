@@ -6,7 +6,7 @@ import { config as dotenvConfig } from 'dotenv';
 dotenvConfig();
 
 const app = express();
-const PORT: number = Number(process.env.PORT) ?? 3000;
+const PORT: number = Number(process.env.PORT ?? 3000);
 
 app.use(helmet());
 app.use(morgan('dev'));
