@@ -8,7 +8,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "eth-rpc-errors": "^4.0.3",
     "vue": "^3.2.29"
   },
   "devDependencies": {
