@@ -1,13 +1,11 @@
 <template>
-  <div class="bg-blue-700">
-    <NavBar></NavBar>
-    <TestMetaMask></TestMetaMask>
+  <div>
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
   </div>
+  <router-view />
 </template>
 
-<script setup>
-import NavBar from '@/components/NavBar.vue';
-import TestMetaMask from '@/components/TestMetaMask.vue';
-</script>
+<script setup></script>
 
 <style></style>
