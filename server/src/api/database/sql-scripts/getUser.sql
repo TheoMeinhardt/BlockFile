@@ -1,2 +1,3 @@
 SELECT *
-FROM blockfileuser;
+FROM blockfileuser
+WHERE uid = $1;

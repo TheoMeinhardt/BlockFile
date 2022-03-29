@@ -19,6 +19,8 @@ module.exports = {
     'object-curly-newline': ['error', { multiline: true }],
     'max-len': ['error', { code: 500 }],
     'no-restricted-syntax': 'off',
+    'prefer-destructuring': 'off',
+    'import/prefer-default-export': 'off',
     indent: ['error', 2],
   },
 };
