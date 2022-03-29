@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-center bg-[url('@/assets/welcomeBackground_auto_x2.jpg')] min-h-screen">
-    <RegistrationForm></RegistrationForm>
+    <WelcomeForm></WelcomeForm>
   </div>
 </template>
 
 <script setup>
-import RegistrationForm from '../components/RegistrationForm.vue';
+import WelcomeForm from '../components/WelcomeForm.vue';
 </script>

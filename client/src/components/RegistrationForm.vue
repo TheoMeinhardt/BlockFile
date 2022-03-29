@@ -1,16 +1,21 @@
 <template>
-  <div class="py-10 px-24 bg-white rounded-md w-4/12 flex flex-col justify-center max-h-fit mt-6 mb-5">
-    <a href="http://localhost:8080/#/home"
-      ><img src="../assets/logo.svg" alt="Logo" height="300" width="300"
-    /></a>
-    <h3 class="text-lg font-bold">Welcome to BlockFile</h3>
-    <p class="my-3">You need a account to access our services</p>
-    <router-link to="/login"
-      ><a class="px-10 py-3 bg-blue-500 rounded-md text-center">Login</a></router-link
-    >
-    <p class="my-3 text-center">Dont have an account?</p>
-    <router-link to="/register"
-      ><a class="px-10 py-3 shadow-md rounded-md text-center">Register</a></router-link
-    >
+  <!-- Muss noch aligned und designed werden -->
+  <div
+    class="py-10 px-24 bg-white rounded-tl-3xl rounded-bl-3xl flex flex-col justify-center min-h-screen max-w-6xl"
+  >
+    <h1 class="text-xl font-bold">Set up your account</h1>
+    <p class="mt-2">For the purpose of industry regulation, your details are required</p>
+    <input type="text" placeholder="First Name" class="mt-2 hover:drop-shadow-md border-solid" />
+    <input type="text" placeholder="Last Name" class="mt-2 hover:drop-shadow-md border-solid" />
+    <input type="text" placeholder="Email" class="mt-2 hover:drop-shadow-md border-solid" />
+    <input type="text" placeholder="Password" class="mt-2 hover:drop-shadow-md border-solid" />
+    <input type="text" placeholder="Confirm Password" class="mt-2 hover:drop-shadow-md border-solid" />
+    <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
+    <a href="" class="px-10 py-3 bg-blue-500 rounded-md text-center mt-4"> Continue</a>
+    <div class="border-b-4 mt-4 border-gray-500"></div>
+    <p class="mt-4">
+      Already have an account?
+      <a><router-link to="/login" class="text-blue-600">Sign in -></router-link></a>
+    </p>
   </div>
 </template>
