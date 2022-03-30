@@ -28,6 +28,15 @@ async function postDbuserData(user: dbuser): Promise<any[]> {
   return rows;
 }
 
+async function patchDbUser(uid: number, user: dbuser): Promise<any[]> {
+  const text: string = 'UPDATE blockfileuser SET firstname = $1, lastname = $2, password = $3, email = $4 WHERE uid = $5';
+  const params: string[] = [user.firstname, user.lastname, user.password, user.email, String(uid)];
+
+  const { rows } = await pool.query(text, params);
+
+  return rows;
+}
+
 async function delDbuser(uid: number): Promise<any[]> {
   const text: string = 'DELETE FROM blockfileuser WHERE uid = $1';
   const params: number[] = [uid];
@@ -37,4 +46,4 @@ async function delDbuser(uid: number): Promise<any[]> {
   return rows;
 }
 
-export { getDbuserData, getAllUsers, delDbuser, postDbuserData };
+export { getDbuserData, getAllUsers, delDbuser, postDbuserData, patchDbUser };
