@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-10 px-80 bg-white rounded-tl-3xl rounded-bl-3xl flex flex-col justify-center min-h-screen max-w-6xl min-w-[75%] font-coolvetica"
+    class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-coolvetica"
   >
     <h1 class="text-2xl font-bold">Set up your account</h1>
     <p class="mt-2 text-gray-500">
