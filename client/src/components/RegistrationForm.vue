@@ -9,34 +9,37 @@
     <input
       type="text"
       placeholder="First Name"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md"
+      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
       type="text"
       placeholder="Last Name"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md"
+      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
-      type="text"
-      placeholder="Email"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md"
+      type="email"
+      placeholder="Email Address"
+      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
-      type="text"
+      type="password"
       placeholder="Password"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md"
+      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
-      type="text"
+      type="password"
       placeholder="Confirm Password"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md"
+      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
     <a href="" class="px-10 py-3 bg-blue-500 rounded-md text-center mt-4"> Continue</a>
     <div class="border-b-2 mt-4 border-gray-500"></div>
     <p class="mt-4">
       Already have an account?
-      <a><router-link to="/login" class="text-blue-600">Sign in -></router-link></a>
+      <a
+        ><router-link to="/login" class="text-blue-600"
+          >Sign in <i class="fa-solid fa-arrow-right-long"></i></router-link
+      ></a>
     </p>
   </div>
 </template>

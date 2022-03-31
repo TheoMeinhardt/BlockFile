@@ -1,6 +1,4 @@
 <template>
-  <!-- TODO
-  alignment -->
   <div
     class="py-10 px-24 bg-white rounded-3xl w-4/12 flex flex-col max-h-fit mt-6 mb-5 font-coolvetica"
   >
