@@ -14,12 +14,12 @@
       placeholder="Password"
       class="mt-4 border-2 h-10 hover:drop-shadow-md border-gray-300 rounded-md px-2"
     />
-    <a class="px-10 py-3 bg-blue-500 rounded-md text-center mt-8"> Continue</a>
+    <a class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8"> Continue</a>
     <div class="border-t-2 mt-10 border-gray-500"></div>
     <p class="mt-4">
       Dont have an account?
       <a
-        ><router-link to="/register" class="text-blue-600"
+        ><router-link to="/register" class="text-blue-600 hover:text-blue-500"
           >Register <i class="fa-solid fa-arrow-right-long"></i></router-link
       ></a>
     </p>

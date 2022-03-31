@@ -2,9 +2,9 @@
   <div
     class="py-10 px-24 bg-white rounded-3xl w-4/12 flex flex-col max-h-fit mt-6 mb-5 font-coolvetica"
   >
-    <a href="http://localhost:8080/#/home" class="place-items-start"
-      ><img src="../assets/logo.svg" alt="Logo" height="300" width="300"
-    /></a>
+    <router-link to="/home" class="place-items-start"
+      ><a><img src="../assets/logo.svg" alt="Logo" height="300" width="300"
+    /></a></router-link>
     <h3 class="text-2xl font-bold mt-16">Welcome to BlockFile</h3>
     <p class="my-3 font-light">You need a account to access our services</p>
     <router-link to="/login" class="text-center mt-12"

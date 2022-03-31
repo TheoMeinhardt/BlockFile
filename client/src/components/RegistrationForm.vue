@@ -32,12 +32,12 @@
       class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
-    <a href="" class="px-10 py-3 bg-blue-500 rounded-md text-center mt-4"> Continue</a>
+    <a href="" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-4"> Continue</a>
     <div class="border-b-2 mt-4 border-gray-500"></div>
     <p class="mt-4">
       Already have an account?
       <a
-        ><router-link to="/login" class="text-blue-600"
+        ><router-link to="/login" class="text-blue-600 hover:text-blue-500"
           >Sign in <i class="fa-solid fa-arrow-right-long"></i></router-link
       ></a>
     </p>
