@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('@/assets/fonts/coolvetica/coolvetica rg.otf');
+}
+
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('@/assets/fonts/lemon_milk/LEMONMILK-Regular.otf');
+} ;

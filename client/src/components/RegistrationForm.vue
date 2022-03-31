@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-10 px-80 bg-white rounded-tl-3xl rounded-bl-3xl flex flex-col justify-center min-h-screen max-w-6xl min-w-[75%]"
+    class="py-10 px-80 bg-white rounded-tl-3xl rounded-bl-3xl flex flex-col justify-center min-h-screen max-w-6xl min-w-[75%] font-coolvetica"
   >
     <h1 class="text-2xl font-bold">Set up your account</h1>
     <p class="mt-2 text-gray-500">
@@ -33,7 +33,7 @@
     />
     <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
     <a href="" class="px-10 py-3 bg-blue-500 rounded-md text-center mt-4"> Continue</a>
-    <div class="border-b-4 mt-4 border-gray-500"></div>
+    <div class="border-b-2 mt-4 border-gray-500"></div>
     <p class="mt-4">
       Already have an account?
       <a><router-link to="/login" class="text-blue-600">Sign in -></router-link></a>
