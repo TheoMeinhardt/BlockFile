@@ -9,30 +9,37 @@
     <input
       type="text"
       placeholder="First Name"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
       type="text"
       placeholder="Last Name"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
       type="email"
       placeholder="Email Address"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
       type="password"
       placeholder="Password"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
     />
     <input
       type="password"
       placeholder="Confirm Password"
-      class="mt-2 hover:drop-shadow-md border-2 h-10 border-gray-300 rounded-md px-2"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
     />
-    <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
-    <a href="" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-4"> Continue</a>
+    <p class="mt-2 text-gray-400">
+      <input type="checkbox" class="mr-2" /> I agree to the Terms and Conditions
+    </p>
+    <router-link
+      to="/home"
+      class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-4 text-white"
+    >
+      <a href="" class=""> Continue</a>
+    </router-link>
     <div class="border-b-2 mt-4 border-gray-500"></div>
     <p class="mt-4">
       Already have an account?
