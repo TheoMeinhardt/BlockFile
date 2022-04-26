@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUserData, addUser, deleteUser, updateUser } from '../controllers';
+import { getUserData, addUser, deleteUser, updateUser, checkCredentials } from '../controllers';
 
 const router = Router();
 
@@ -8,6 +8,7 @@ router.get('/:id', getUserData);
 
 // post requests
 router.post('/', addUser);
+router.post('/login', checkCredentials);
 
 // patch request
 router.patch('/:id', updateUser);
