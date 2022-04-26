@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-coolvetica"
+    class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-poppins"
   >
     <h3 class="text-xl font-bold">Login</h3>
     <div class="border-t-2 mt-5 border-gray-500"></div>
