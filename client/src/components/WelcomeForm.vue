@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-10 px-24 bg-white rounded-3xl w-4/12 flex flex-col max-h-fit mt-6 mb-5 font-coolvetica"
+    class="py-10 px-24 bg-white rounded-3xl w-4/12 flex flex-col max-h-fit mt-6 mb-5 font-poppins"
   >
     <router-link to="/home" class="place-items-start"
       ><a><img src="../assets/logo.svg" alt="Logo" height="300" width="300"
