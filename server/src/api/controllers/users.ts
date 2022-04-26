@@ -93,4 +93,31 @@ async function deleteUser(req: Request, res: Response): Promise<void> {
   }
 }
 
-export { getUserData, addUser, deleteUser, updateUser };
+//
+// functions which gets users email and password from client an checks if credentials are valid
+//
+async function checkCredentials(req: Request, res: Response): Promise<void> {
+  try {
+    const userData: { uid: number; email: string; password: string } = req.body;
+
+    // check if user exists
+    if (await helpers.userExists(userData.uid)) {
+      // get user with id from database
+      const user: dbuser = await db.getDbuserData(userData.uid);
+
+      // check if password is valid
+      if (userData.email === user.email && (await helpers.checkPassword(userData.password, user.password))) {
+        res.status(200).send('Credentials are valid!');
+      } else {
+        res.status(401).send('Credentials are not valid!');
+      }
+    } else {
+      res.status(404).send('User not found!');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error!');
+  }
+}
+
+export { getUserData, addUser, deleteUser, updateUser, checkCredentials };

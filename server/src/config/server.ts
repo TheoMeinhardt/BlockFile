@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import { config as dotenvConfig } from 'dotenv';
 
 // router imports
-import { userRouter, webtokensRouter } from '../api/routes';
+import { userRouter } from '../api/routes';
 
 dotenvConfig();
 
@@ -17,7 +17,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/user', userRouter);
-app.use(webtokensRouter);
 
 app.listen(PORT, () => {
   console.log(`\nServer listening on port ${PORT}`);
