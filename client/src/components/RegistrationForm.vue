@@ -1,21 +1,52 @@
 <template>
-  <!-- Muss noch aligned und designed werden -->
   <div
-    class="py-10 px-24 bg-white rounded-tl-3xl rounded-bl-3xl flex flex-col justify-center min-h-screen max-w-6xl"
+    class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-poppins"
   >
-    <h1 class="text-xl font-bold">Set up your account</h1>
-    <p class="mt-2">For the purpose of industry regulation, your details are required</p>
-    <input type="text" placeholder="First Name" class="mt-2 hover:drop-shadow-md border-solid" />
-    <input type="text" placeholder="Last Name" class="mt-2 hover:drop-shadow-md border-solid" />
-    <input type="text" placeholder="Email" class="mt-2 hover:drop-shadow-md border-solid" />
-    <input type="text" placeholder="Password" class="mt-2 hover:drop-shadow-md border-solid" />
-    <input type="text" placeholder="Confirm Password" class="mt-2 hover:drop-shadow-md border-solid" />
-    <p class="mt-2"><input type="checkbox" /> I agree to the <a href="">Terms and Conditions</a></p>
-    <a href="" class="px-10 py-3 bg-blue-500 rounded-md text-center mt-4"> Continue</a>
-    <div class="border-b-4 mt-4 border-gray-500"></div>
+    <h1 class="text-2xl font-bold">Set up your account</h1>
+    <p class="mt-2 text-gray-500">
+      For the purpose of industry regulation, your details are required
+    </p>
+    <input
+      type="text"
+      placeholder="First Name"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
+    />
+    <input
+      type="text"
+      placeholder="Last Name"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
+    />
+    <input
+      type="email"
+      placeholder="Email Address"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
+    />
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      class="mt-2 hover:drop-shadow-md placeholder:text-gray-400 border-2 h-10 border-gray-300 rounded-md px-2"
+    />
+    <p class="mt-2 text-gray-400">
+      <input type="checkbox" class="mr-2" /> I agree to the Terms and Conditions
+    </p>
+    <router-link
+      to="/home"
+      class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-4 text-white"
+    >
+      <a href="" class=""> Continue</a>
+    </router-link>
+    <div class="border-b-2 mt-4 border-gray-500"></div>
     <p class="mt-4">
       Already have an account?
-      <a><router-link to="/login" class="text-blue-600">Sign in -></router-link></a>
+      <a
+        ><router-link to="/login" class="text-blue-600 hover:text-blue-500"
+          >Sign in <i class="fa-solid fa-arrow-right-long"></i></router-link
+      ></a>
     </p>
   </div>
 </template>
