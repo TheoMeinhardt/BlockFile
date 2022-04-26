@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { dbuser } from '../types';
-import * as db from '../database';
+import * as db from '../models';
 import * as helpers from '../helpers';
 
 //
