@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         coolvetica: ['Coolvetica', 'sans-serif'],
         lemonmilk: ['Lemon Milk', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },
