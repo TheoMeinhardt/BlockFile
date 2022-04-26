@@ -1,5 +1,5 @@
 import { dbuser } from '../types';
-import * as db from '../database';
+import * as db from '../models';
 
 // function which uses id handed over as a parameter to check if a user exists and returns a boolean
 async function userExists(id: number): Promise<boolean> {
