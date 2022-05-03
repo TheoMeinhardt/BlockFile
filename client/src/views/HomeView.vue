@@ -2,28 +2,42 @@
   <div>
     <div class="waveOne w-full h-[487px]">
       <NavBar></NavBar>
-      <span class="text-3xl font-poppins ml-32 mt-32">Welcome to BlockFile Matthias!</span>
+      <div class="py-32">
+        <span class="text-3xl font-poppins ml-32 font-bold text-white"
+          >Welcome to BlockFile Matthias!</span
+        >
+      </div>
     </div>
-    <h1 class="bg-white text-3xl font-poppins ml-32 mt-32">Upload your Files</h1>
-    <div
-      class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32"
-    >
-      <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
-      <h1 class="font-coolvetica text-4xl">drag & drop here</h1>
+    <section id="upload">
+      <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
+      <div
+        class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32"
+      >
+        <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+        <h1 class="font-coolvetica text-4xl">drag & drop here</h1>
+      </div>
+    </section>
+
+    <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">
+      <section id="uploaded">
+        <span class="text-3xl font-poppins ml-32">Your uploaded Files</span>
+        <UploadedFiles />
+      </section>
     </div>
-    <div class="waveTwo w-full h-[55rem]">
-      <span class="text-3xl font-poppins mt-32">Your uploaded Files</span>
-    </div>
-    <div class="waveThree w-full h-[55rem] py-20">
-      <span class="text-3xl font-poppins ml-32">About us</span>
-      <AboutUs class="m-10" />
-    </div>
+
+    <section id="aboutUs">
+      <div class="waveThree w-full h-[55rem] py-20 font-bold text-white">
+        <span class="text-3xl font-poppins ml-32">About us</span>
+        <AboutUs class="m-10" />
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
+import UploadedFiles from '../components/uploadedFiles.vue';
 </script>
 
 <style scoped>

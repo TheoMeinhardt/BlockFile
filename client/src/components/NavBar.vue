@@ -1,11 +1,13 @@
 <template>
   <header class="flex justify-between py-4 px-8 font-poppins">
     <span class="grow"></span>
-    <ul class="text-center gap-4 flex flex-row items-center align-middle divide-x-2 divide-white text-white">
-      <li><router-link to="/home">Home</router-link></li>
-      <li><router-link to="/portfolio">Upload</router-link></li>
-      <li><router-link to="/portfolio">Uploaded</router-link></li>
-      <li><router-link to="/about">About us</router-link></li>
+    <ul
+      class="text-center gap-4 flex flex-row items-center align-middle divide-x-2 divide-white text-white"
+    >
+      <li><a href="">Home</a></li>
+      <li><a href="#upload" v-smooth-scroll>Upload</a></li>
+      <li><a href="#uploaded" v-smooth-scroll>Uploaded</a></li>
+      <li><a href="#aboutUs" v-smooth-scroll>About us</a></li>
     </ul>
     <span class="grow"></span>
     <a class="align-self text-white">MATTHIAS</a>
