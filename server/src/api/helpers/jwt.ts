@@ -34,6 +34,4 @@ async function updateKey(): Promise<void> {
   await db.updateKey(newKey);
 }
 
-updateKey();
-
 export { createToken, verifyToken, updateKey };
