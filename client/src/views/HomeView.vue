@@ -16,12 +16,14 @@
     </div>
     <div class="waveThree w-full h-[55rem]">
       <span class="text-3xl font-poppins ml-32">About us</span>
+      <AboutUs />
     </div>
   </div>
 </template>
 
 <script setup>
 import NavBar from '../components/NavBar.vue';
+import AboutUs from '../components/AboutUs.vue';
 </script>
 
 <style scoped>
