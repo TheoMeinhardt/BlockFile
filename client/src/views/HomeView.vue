@@ -14,9 +14,9 @@
     <div class="waveTwo w-full h-[55rem]">
       <span class="text-3xl font-poppins mt-32">Your uploaded Files</span>
     </div>
-    <div class="waveThree w-full h-[55rem]">
+    <div class="waveThree w-full h-[55rem] py-20">
       <span class="text-3xl font-poppins ml-32">About us</span>
-      <AboutUs />
+      <AboutUs class="m-10" />
     </div>
   </div>
 </template>
