@@ -7,6 +7,9 @@ import { config as dotenvConfig } from 'dotenv';
 // router imports
 import { userRouter } from '../api/routes';
 
+// error handlers
+import { errorHandler } from '../api/middleware';
+
 dotenvConfig();
 
 const app = express();
@@ -17,6 +20,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/user', userRouter);
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`\nServer listening on port ${PORT}`);
