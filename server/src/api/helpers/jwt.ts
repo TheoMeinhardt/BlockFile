@@ -1,7 +1,10 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import { randomString } from '.';
+import * as db from '../models';
 
-function createToken(sub: string, name: string): string {
+async function createToken(sub: string, name: string): Promise<string> {
   const currentTime: number = Math.round(Date.now() / 1000);
+  const key: string = await db.getKey();
 
   const payload: JwtPayload = {
     sub,
@@ -10,18 +13,27 @@ function createToken(sub: string, name: string): string {
     exp: currentTime + 15 * 60,
   };
 
-  const token: string = jwt.sign(payload, 'test');
+  const token: string = jwt.sign(payload, key);
 
   return token;
 }
 
-function verifyToken(token: string): JwtPayload | string {
+async function verifyToken(token: string): Promise<JwtPayload | string> {
   try {
-    const payload = jwt.verify(token, 'test');
+    const key: string = await db.getKey();
+    const payload: JwtPayload | string = jwt.verify(token, key);
+
     return payload;
-  } catch (err) {
-    return 'Invalid token';
+  } catch (err: any) {
+    return err.message;
   }
 }
 
-export { createToken, verifyToken };
+async function updateKey(): Promise<void> {
+  const newKey: string = randomString(64);
+  await db.updateKey(newKey);
+}
+
+updateKey();
+
+export { createToken, verifyToken, updateKey };

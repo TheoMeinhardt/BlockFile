@@ -107,7 +107,9 @@ async function checkCredentials(req: Request, res: Response): Promise<void> {
 
       // check if password is valid
       if (userData.email === user.email && (await helpers.checkPassword(userData.password, user.password))) {
-        res.status(200).send('Credentials are valid!');
+        // create jwt and send to client
+        const token: string = await helpers.createToken(String(userData.uid), `${user.firstname} ${user.lastname}`);
+        res.status(200).send(token);
       } else {
         res.status(401).send('Credentials are not valid!');
       }
