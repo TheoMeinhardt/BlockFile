@@ -8,7 +8,7 @@ import { config as dotenvConfig } from 'dotenv';
 import { userRouter } from '../api/routes';
 
 // error handlers
-import { errorHandler } from '../api/middleware';
+import { errorHandler, notFoundHandler } from '../api/middleware';
 
 dotenvConfig();
 
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use('/user', userRouter);
 
 app.use(errorHandler);
+app.use(notFoundHandler);
 
 app.listen(PORT, () => {
   console.log(`\nServer listening on port ${PORT}`);
