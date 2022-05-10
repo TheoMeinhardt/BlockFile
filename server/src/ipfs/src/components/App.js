@@ -4,6 +4,7 @@ import './App.css';
 import SimpleStorage from '../abis/SimpleStorage.json';
 
 const ipfsClient = require('ipfs-http-client');
+
 const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
 class App extends Component {
@@ -48,7 +49,7 @@ class App extends Component {
       web3: null,
       buffer: null,
       account: null,
-      hashes: [],
+      ipfsHashes: [],
     };
   }
 
@@ -58,7 +59,7 @@ class App extends Component {
     const reader = new window.FileReader();
     reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
-      this.setState({ buffer: Buffer(reader.result) });
+      this.setState({ buffer: Buffer.from(reader.result) });
       console.log('buffer', this.state.buffer);
     };
   };
@@ -72,7 +73,8 @@ class App extends Component {
         console.error(error);
         return;
       }
-      this.state.hashes.push(result[0].hash);
+      // this.state.hashes.push(result[0].hash);
+
       console.log(this.state.hashes);
       this.state.contract.methods
         .set(result[0].hash)
