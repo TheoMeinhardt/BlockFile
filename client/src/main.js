@@ -5,6 +5,7 @@ import VueSmoothScroll from 'vue3-smooth-scroll';
 import App from './App.vue';
 import router from './router';
 
+import 'axios';
 import './index.css';
 
 const app = createApp(App);
