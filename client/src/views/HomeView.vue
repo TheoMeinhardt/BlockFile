@@ -10,11 +10,13 @@
     </div>
     <section id="upload">
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
-      <div
-        class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32"
-      >
-        <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
-        <h1 class="font-coolvetica text-4xl">drag & drop here</h1>
+      <div class="flex flex-col justify-center">
+        <div
+          class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32 justify-center"
+        >
+          <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+          <h1 class="font-coolvetica text-4xl">drag & drop here</h1>
+        </div>
       </div>
     </section>
 
@@ -37,7 +39,7 @@
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
-import UploadedFiles from '../components/uploadedFiles.vue';
+import UploadedFiles from '../components/UploadedFiles.vue';
 </script>
 
 <style scoped>
