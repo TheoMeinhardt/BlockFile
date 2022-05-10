@@ -1,32 +1,52 @@
 <template>
-  <div
-    class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-poppins"
-  >
+  <form class="py-10 px-80 bg-white rounded-tr-3xl rounded-br-3xl flex flex-col justify-center min-h-screen max-w-6xl font-poppins">
     <h3 class="text-xl font-bold">Login</h3>
     <div class="border-t-2 mt-5 border-gray-500"></div>
-    <input
-      type="email"
-      placeholder="Email Address"
-      class="mt-4 border-2 h-10 hover:drop-shadow-md placeholder:text-gray-400 border-gray-300 rounded-md px-2"
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      class="mt-4 border-2 h-10 hover:drop-shadow-md placeholder:text-gray-400 border-gray-300 rounded-md px-2"
-    />
-    <router-link
-      to="/home"
-      class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white"
-    >
-      <a class=""> Continue</a>
-    </router-link>
+
+    <input v-model="email" type="email" placeholder="Email Address" class="mt-4 border-2 h-10 hover:drop-shadow-md placeholder:text-gray-400 border-gray-300 rounded-md px-2" />
+    <input v-model="password" type="password" placeholder="Password" class="mt-4 border-2 h-10 hover:drop-shadow-md placeholder:text-gray-400 border-gray-300 rounded-md px-2" />
+
+    <!-- <router-link to="/home" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white"> </router-link> -->
+    <button @click="submitLogin()" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white">Continue</button>
+
     <div class="border-t-2 mt-10 border-gray-500"></div>
+
     <p class="mt-4">
       Dont have an account?
       <a
-        ><router-link to="/register" class="text-blue-600 hover:text-blue-500"
-          >Register <i class="fa-solid fa-arrow-right-long"></i></router-link
+        ><router-link to="/register" class="text-blue-600 hover:text-blue-500">Register <i class="fa-solid fa-arrow-right-long"></i></router-link
       ></a>
     </p>
-  </div>
+  </form>
 </template>
+
+<script setup>
+import axios from 'axios';
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+
+import useUserStore from '@/stores/users';
+
+const userStore = useUserStore();
+const router = useRouter();
+const email = ref('');
+const password = ref('');
+const valErr = { email: true };
+
+watch(email, (val) => {
+  const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+  if (!val.match(re)) {
+    valErr.email = true;
+  } else {
+    valErr.email = false;
+  }
+});
+
+async function submitLogin() {
+  const { data: jwt } = await axios.post('http://localhost:3000/user/login', {
+    email: email.value,
+    password: password.value,
+  });
+}
+</script>
