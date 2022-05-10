@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "flowbite": "^1.4.4",
+    "pinia": "^2.0.14",
     "vue": "^3.2.29",
     "vue3-smooth-scroll": "^0.8.1"
   },
