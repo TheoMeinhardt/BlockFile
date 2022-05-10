@@ -12,6 +12,14 @@ async function getDbuserData(uid: number): Promise<dbuser> {
   return rows;
 }
 
+async function getDbuserDataByEmail(email: string): Promise<dbuser> {
+  const text: string = 'SELECT * FROM blockfileuser WHERE email = $1';
+  const params: string[] = [email];
+
+  const data: QueryResult<dbuser> = await pool.query(text, params);
+  return data.rows[0];
+}
+
 async function getAllUsers(): Promise<dbuser[]> {
   const text: string = 'SELECT * FROM blockfileuser';
   const { rows } = await pool.query(text, []);
@@ -46,4 +54,4 @@ async function delDbuser(uid: number): Promise<any[]> {
   return rows;
 }
 
-export { getDbuserData, getAllUsers, delDbuser, postDbuserData, patchDbUser };
+export { getDbuserData, getAllUsers, delDbuser, postDbuserData, patchDbUser, getDbuserDataByEmail };

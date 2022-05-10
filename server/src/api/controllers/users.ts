@@ -77,12 +77,13 @@ async function deleteUser(req: Request, res: Response): Promise<void> {
 // functions which gets users email and password from client an checks if credentials are valid
 //
 async function checkCredentials(req: Request, res: Response): Promise<void> {
-  const userData: { uid: number; email: string; password: string } = req.body;
+  const userData: { uid?: number; email: string; password: string } = req.body;
 
   // check if user exists
-  if (await helpers.userExists(userData.uid)) {
+  if (await helpers.emailExists(userData.email)) {
     // get user with id from database
-    const user: dbuser = await db.getDbuserData(userData.uid);
+    const user: dbuser = await db.getDbuserDataByEmail(userData.email);
+    userData.uid = user.uid;
 
     // check if password is valid
     if (userData.email === user.email && (await helpers.checkPassword(userData.password, user.password))) {
