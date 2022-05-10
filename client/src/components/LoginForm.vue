@@ -34,37 +34,61 @@ const userStore = useUserStore();
 const router = useRouter();
 const email = ref('');
 const password = ref('');
-const valErr = { email: '', password: '', status: '' };
+const valErr = ref({ email: '', password: '', status: '' });
 
 watch(email, (val) => {
   const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
-  if (val === '') valErr.email = 'An Email must be specified!';
-  else if (!val.match(re)) valErr.email = 'Invalid Email!';
-  else valErr.email = '';
+  if (val === '') valErr.value.email = 'An Email must be specified!';
+  else if (!val.match(re)) valErr.value.email = 'Invalid Email!';
+  else valErr.value.email = '';
 });
 
 watch(password, (val) => {
-  if (val === '') valErr.password = 'A Password must be specified!';
-  else valErr.password = '';
+  if (val === '') valErr.value.password = 'A Password must be specified!';
+  else valErr.value.password = '';
 });
 
 async function submitLogin() {
-  if (valErr.email === '' && valErr.password === '') {
-    const res = await axios.post('http://localhost:3000/user/login', {
-      email: email.value,
-      password: password.value,
-    });
+  if (valErr.value.email === '' && valErr.value.password === '') {
+    try {
+      let res = await axios.post('http://localhost:3000/user/login', {
+        email: email.value,
+        password: password.value,
+      });
 
-    console.log(res.data);
-
-    if (res.status === 200) {
       userStore.jwt = res.data;
+
+      let config = {
+        method: 'get',
+        url: `http://localhost:3000/user/id/${email.value}`,
+        headers: { authorization: userStore.jwt },
+      };
+      res = await axios(config);
+
+      userStore.user.uid = Number(res.data);
+
+      config = {
+        method: 'get',
+        url: `http://localhost:3000/user/${userStore.user.uid}`,
+        headers: { authorization: userStore.jwt },
+      };
+
+      res = await axios(config);
+
+      userStore.user.firstname = res.data.firstname;
+      userStore.user.lastname = res.data.lastname;
+      userStore.user.email = res.data.email;
+
+      console.log(userStore.user);
+
       router.push('/home');
-    } else if (res.status === 401) {
-      valErr.status = res.data;
-    } else {
-      valErr.status = 'An Error Occurred!';
+    } catch (err) {
+      if (err.response.status === 401 || err.response.status === 404) {
+        valErr.value.status = err.response.data;
+      } else {
+        valErr.value.status = 'An Error Occurred!';
+      }
     }
   }
 }
