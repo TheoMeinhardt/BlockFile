@@ -10,9 +10,11 @@
   "dependencies": {
     "axios": "^0.27.2",
     "flowbite": "^1.4.4",
+    "ipfs-http-client": "^56.0.3",
     "pinia": "^2.0.14",
     "vue": "^3.2.29",
-    "vue3-smooth-scroll": "^0.8.1"
+    "vue3-smooth-scroll": "^0.8.1",
+    "web3": "^1.7.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.1.0",

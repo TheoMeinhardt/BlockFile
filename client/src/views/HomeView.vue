@@ -49,6 +49,7 @@ import SimpleStorage from '../../../server/src/ipfs/src/abis/SimpleStorage.json'
 import ipfsClient from 'ipfs-http-client';
 
 const userStore = useUserStore();
+
 const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
 const startServer = async () => {
@@ -82,10 +83,8 @@ const startServer = async () => {
     }
   }
 
-  constructor(props);
+  constructor();
   {
-    super(props);
-
     this.state = {
       ipfsHash: '',
       contract: null,
@@ -96,7 +95,7 @@ const startServer = async () => {
     };
   }
 
-  captureFile = (event) => {
+  const captureFile = (event) => {
     event.preventDefault();
     const file = event.target.files[0];
     const reader = new window.FileReader();
@@ -107,7 +106,7 @@ const startServer = async () => {
     };
   };
 
-  onSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
     console.log('Submitting file to ipfs...');
     ipfs.add(this.state.buffer, (error, result) => {
@@ -122,7 +121,7 @@ const startServer = async () => {
       this.state.contract.methods
         .set(result[0].hash)
         .send({ from: this.state.account })
-        .then((r) => {
+        .then(() => {
           return this.setState({ ipfsHash: result[0].hash });
         });
     });
