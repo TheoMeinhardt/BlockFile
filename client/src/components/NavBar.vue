@@ -10,6 +10,12 @@
       <li><a href="#aboutUs" v-smooth-scroll>About us</a></li>
     </ul>
     <span class="grow"></span>
-    <a class="align-self text-white">MATTHIAS</a>
+    <a class="align-self text-white">{{ userStore.user.firstname }}</a>
   </header>
 </template>
+
+<script setup>
+import useUserStore from '../stores/users.js';
+
+const userStore = useUserStore();
+</script>
