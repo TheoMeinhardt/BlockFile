@@ -8,6 +8,9 @@ export default defineConfig({
   server: {
     port: 3001,
   },
+  optimizeDeps: {
+    exclude: ['electron-fetch'],
+  },
   plugins: [vue()],
   resolve: {
     alias: {

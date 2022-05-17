@@ -45,7 +45,7 @@ import useUserStore from '../stores/users.js';
 
 import { onMounted } from 'vue';
 import Web3 from 'web3';
-import SimpleStorage from '../../../server/src/ipfs/src/abis/SimpleStorage.json';
+import SimpleStorage from '../../../server/src/ipfs/src/contracts/SimpleStorage.sol';
 import ipfsClient from 'ipfs-http-client';
 
 const userStore = useUserStore();
