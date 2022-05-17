@@ -4,7 +4,7 @@
       <NavBar></NavBar>
       <div class="py-32">
         <span class="text-3xl font-poppins ml-32 font-bold text-white"
-          >Welcome to BlockFile Matthias!</span
+          >Welcome to BlockFile {{userStore.user.firstname}}!</span
         >
       </div>
     </div>
@@ -40,6 +40,10 @@
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
 import UploadedFiles from '../components/UploadedFiles.vue';
+import useUserStore from '../stores/users.js'
+
+const userStore = useUserStore();
+
 </script>
 
 <style scoped>
