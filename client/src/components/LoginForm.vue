@@ -8,7 +8,6 @@
     <input v-model="password" type="password" placeholder="Password" class="mt-4 border-2 h-10 hover:drop-shadow-md placeholder:text-gray-400 border-gray-300 rounded-md px-2" />
     <p v-if="valErr.password">{{ valErr.password }}</p>
 
-    <!-- <router-link to="/home" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white"> </router-link> -->
     <button @click="submitLogin()" class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white">Continue</button>
     <p v-if="valErr.status">{{ valErr.status }}</p>
 

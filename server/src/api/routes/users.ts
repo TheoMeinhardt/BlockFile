@@ -11,7 +11,7 @@ router.get('/:id', asyncHandler(verify), asyncHandler(getUserData));
 router.get('/id/:email', asyncHandler(verify), asyncHandler(getUidByEmail));
 
 // post requests
-router.post('/', asyncHandler(verify), asyncHandler(addUser));
+router.post('/', asyncHandler(addUser));
 router.post('/login', asyncHandler(checkCredentials));
 
 // patch request
