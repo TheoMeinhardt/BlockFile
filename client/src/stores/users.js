@@ -12,6 +12,10 @@ const useUserStore = defineStore('userStore', {
       },
     };
   },
+
+  persist: {
+    enabled: true,
+  },
 });
 
 export default useUserStore;
