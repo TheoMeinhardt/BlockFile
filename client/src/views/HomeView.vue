@@ -12,6 +12,7 @@
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
       <div class="flex flex-col justify-center">
         <div
+          @change="captureFile()"
           class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32 justify-center"
         >
           <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
@@ -23,7 +24,7 @@
     <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">
       <section id="uploaded">
         <span class="text-3xl font-poppins ml-32">Your uploaded Files</span>
-        <UploadedFiles />
+        <UploadedFiles class="mx-32" />
       </section>
     </div>
 
