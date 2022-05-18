@@ -98,4 +98,18 @@ async function checkCredentials(req: Request, res: Response): Promise<void> {
   }
 }
 
-export { getUserData, addUser, deleteUser, updateUser, checkCredentials };
+//
+// Get uid from db by email sent by client and send uid to client
+//
+async function getUidByEmail(req: Request, res: Response): Promise<void> {
+  const email: string = req.params.email;
+
+  if (await helpers.emailExists(email)) {
+    const user: dbuser = await db.getDbuserDataByEmail(email);
+    res.status(200).send(String(user.uid));
+  } else {
+    res.status(404).send('User not found!');
+  }
+}
+
+export { getUserData, addUser, deleteUser, updateUser, checkCredentials, getUidByEmail };
