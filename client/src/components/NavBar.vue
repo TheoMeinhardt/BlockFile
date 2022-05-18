@@ -1,5 +1,5 @@
 <template>
-  <header class="flex justify-between py-4 px-8 font-poppins fixed">
+  <header class="flex justify-between py-4 px-8 font-poppins bg-[#2C5CAB]">
     <span class="grow"></span>
     <ul
       class="text-center gap-4 flex flex-row items-center align-middle divide-x-2 divide-white text-white"
