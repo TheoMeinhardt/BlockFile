@@ -24,7 +24,7 @@
     <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">
       <section id="uploaded">
         <span class="text-3xl font-poppins ml-32">Your uploaded Files</span>
-        <UploadedFiles class="mx-32" />
+        <UploadedFiles class="mx-32 mt-2" />
       </section>
     </div>
 
