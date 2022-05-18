@@ -13,14 +13,14 @@
       <div class="flex justify-center">
         <div
           @change="captureFile()"
-          class="bg-gray-200 border-black flex flex-col text-center border border-dashed rounded-md content-center mb-32 justify-center h-64 w-96"
+          class="bg-gray-200 border-black flex flex-col text-center border border-dashed rounded-md content-center mt-8 justify-center h-64 w-96"
         >
           <i class="fa-solid fa-cloud-arrow-up text-6xl"></i>
-          <h1 class="font-coolvetica text-6xl">drag & drop here</h1>
+          <h1 class="font-coolvetica text-3xl">drag & drop here</h1>
         </div>
       </div>
       <div class="flex justify-center">
-      <button class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-5xl font-poppins">Submit</button>
+      <button class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-1xl font-poppins">Submit</button>
     </div>
     </section>
 
