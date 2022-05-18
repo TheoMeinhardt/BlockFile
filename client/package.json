@@ -1,12 +1,22 @@
 {
-  "name": "vv3-template-cb",
-  "version": "0.0.0",
+  "name": "blockfile",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 5050",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheoMeinhardt/BlockFile.git"
+  },
+  "author": "Theo Meinhardt, Emil Engelmeier, Max Schuller, Matthias Eisenhut",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheoMeinhardt/BlockFile/issues"
+  },
+  "homepage": "https://github.com/TheoMeinhardt/BlockFile#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "flowbite": "^1.4.4",
