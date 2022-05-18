@@ -30,7 +30,7 @@
 
     <div class="waveThree w-full h-[55rem] py-20 font-bold text-white">
       <section id="aboutUs">
-        <span class="text-3xl font-poppins ml-32">About us</span>
+        <span class="text-3xl font-poppins ml-32">Our Team</span>
         <AboutUs class="m-10" />
       </section>
     </div>
