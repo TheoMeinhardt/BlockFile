@@ -10,15 +10,18 @@
     </div>
     <section id="upload">
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
-      <div class="flex flex-col justify-center">
+      <div class="flex justify-center">
         <div
           @change="captureFile()"
-          class="bg-gray-200 border-black flex flex-col text-center border w-80 border-dashed rounded-md h-32 content-center mb-32 justify-center"
+          class="bg-gray-200 border-black flex flex-col text-center border border-dashed rounded-md content-center mb-32 justify-center h-64 w-96"
         >
-          <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
-          <h1 class="font-coolvetica text-4xl">drag & drop here</h1>
+          <i class="fa-solid fa-cloud-arrow-up text-6xl"></i>
+          <h1 class="font-coolvetica text-6xl">drag & drop here</h1>
         </div>
       </div>
+      <div class="flex justify-center">
+      <button class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-5xl font-poppins">Submit</button>
+    </div>
     </section>
 
     <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">

@@ -4,7 +4,7 @@
       <a href="">
         <img class="rounded-t-lg h-1/2" src="@/assets/Matze.jpeg" alt="" />
       </a>
-      <div class="p-5">
+      <div class="p-5 font-poppins">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Matthias Eisenhut
         </h5>
@@ -15,7 +15,7 @@
       <a href="">
         <img class="rounded-t-lg h-1/2" src="@/assets/Matze.jpeg" alt="" />
       </a>
-      <div class="p-5">
+      <div class="p-5 font-poppins">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Emil Engelmeier
         </h5>
@@ -26,7 +26,7 @@
       <a href="">
         <img class="rounded-t-lg h-1/2" src="@/assets/Matze.jpeg" alt="" />
       </a>
-      <div class="p-5">
+      <div class="p-5 font-poppins">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Theo Meinhardt
         </h5>
@@ -37,7 +37,7 @@
       <a href="">
         <img class="rounded-t-lg h-1/2" src="@/assets/Matze.jpeg" alt="" />
       </a>
-      <div class="p-5">
+      <div class="p-5 font-poppins">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Max Schuller
         </h5>
