@@ -20,8 +20,12 @@
         </div>
       </div>
       <div class="flex justify-center">
-      <button class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-1xl font-poppins">Submit</button>
-    </div>
+        <button
+          class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-1xl font-poppins"
+        >
+          Submit
+        </button>
+      </div>
     </section>
 
     <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">
@@ -37,6 +41,7 @@
         <AboutUs class="m-10" />
       </section>
     </div>
+    <FooterBar class="mb-2"></FooterBar>
   </div>
 </template>
 
@@ -44,6 +49,7 @@
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
 import UploadedFiles from '../components/UploadedFiles.vue';
+import FooterBar from '../components/FooterBar.vue';
 import useUserStore from '../stores/users.js';
 
 // import { onMounted } from 'vue';
