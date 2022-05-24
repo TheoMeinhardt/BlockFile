@@ -11,12 +11,25 @@
       <li><a href="#aboutUs" v-smooth-scroll>Our Team</a></li>
     </ul>
     <span class="grow"></span>
-    <a class="align-self text-white">{{ userStore.user.firstname }}</a>
+    <span class="align-self text-white mt-2">
+      {{ userStore.user.firstname }}
+    </span>
+    <span class="mx-4 text-white mt-2">|</span>
+    <button @click="logout" class="text-white bg-red-600 p-2 rounded-md align-self">Logout</button>
   </header>
 </template>
 
 <script setup>
+import 'flowbite';
 import useUserStore from '../stores/users.js';
+import { useRouter } from 'vue-router';
 
 const userStore = useUserStore();
+const router = useRouter();
+
+const logout = () => {
+  userStore.user = {};
+  userStore.token = '';
+  router.push('/');
+};
 </script>

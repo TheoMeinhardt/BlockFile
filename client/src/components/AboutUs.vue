@@ -47,6 +47,6 @@
   </div>
 </template>
 
-<script startup>
+<script setup>
 import 'flowbite';
 </script>
