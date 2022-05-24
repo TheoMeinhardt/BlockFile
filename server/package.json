@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./dist/config/server.js",
-    "dev": "ts-node-dev --respawn --rs ./src/config/server.ts",
+    "dev": "nodemon ./src/config/server.ts",
     "build": "tsc -p ./",
     "lint": "eslint . --ext .ts"
   },
@@ -49,7 +49,6 @@
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "ts-node-dev": "^1.1.8"
+    "eslint-plugin-import": "^2.25.4"
   }
 }
