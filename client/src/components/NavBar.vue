@@ -15,7 +15,12 @@
       {{ userStore.user.firstname }}
     </span>
     <span class="mx-4 text-white mt-2">|</span>
-    <button @click="logout" class="text-white bg-red-600 p-2 rounded-md align-self">Logout</button>
+    <button
+      @click="logout"
+      class="text-white bg-red-600 p-2 rounded-md align-self hover:bg-red-500"
+    >
+      Logout
+    </button>
   </header>
 </template>
 
