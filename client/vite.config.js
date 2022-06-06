@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3001,
   },
   optimizeDeps: {
-    exclude: ['electron-fetch'],
+    // exclude: ['electron-fetch'],
   },
   plugins: [vue()],
   resolve: {

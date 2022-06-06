@@ -21,6 +21,7 @@
       </div>
       <div class="flex justify-center">
         <button
+          @click="onSubmit()"
           class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-1xl font-poppins"
         >
           Submit
@@ -51,92 +52,108 @@ import AboutUs from '../components/AboutUs.vue';
 import UploadedFiles from '../components/UploadedFiles.vue';
 import FooterBar from '../components/FooterBar.vue';
 import useUserStore from '../stores/users.js';
+import { onMounted, ref } from 'vue';
+import Web3 from 'web3';
+import SimpleStorage from '../../../server/src/ipfs/src/abis/SimpleStorage.json';
 
-// import { onMounted } from 'vue';
-// import Web3 from 'web3';
-// import SimpleStorage from '../../../server/src/ipfs/src/contracts/SimpleStorage.sol';
+import IPFS from 'ipfs-mini';
+const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+
 // import ipfsClient from 'ipfs-http-client';
-
-const userStore = useUserStore();
-
 // const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
-// const startServer = async () => {
-//   await loadBlockchainData();
-//   await loadWeb3();
+// const props = defineProps({
+//   ipfsHash: String,
+//   contract: null,
+//   web3: null,
+//   buffer: null,
+//   account: null,
+//   ipfsHashes: Array,
+// });
 
-//   async function loadWeb3() {
-//     if (window.ethereum) {
-//       window.web3 = new Web3(window.ethereum);
-//       await window.ethereum.enable();
-//     } else if (window.web3) {
-//       window.web3 = new Web3(window.ethereum);
-//     } else {
-//       window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
-//     }
-//   }
+const ipfsHash = ref('');
+const contract = ref();
+const web3 = ref();
+const buffer = ref();
+const account = ref();
+// const ipfsHashes = ref([]);
 
-//   async function loadBlockchainData() {
-//     const web3 = window.web3;
-//     const accounts = await web3.eth.getAccounts();
-//     this.setState({ account: accounts[0] });
-//     const networkId = await web3.eth.net.getId();
-//     const networkData = SimpleStorage.networks[networkId];
-//     if (networkData) {
-//       const contract = web3.eth.Contract(SimpleStorage.abi, networkData.address);
-//       this.setState({ contract });
-//       const ipfsHash = await this.state.contract.methods.get().call();
-//       this.setState({ ipfsHash });
-//     } else {
-//       window.alert('Smart contract not deployed to detected network.');
-//     }
-//   }
+// const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+// const IPFS = require('ipfs-mini');
+const userStore = useUserStore();
 
-//   constructor();
-//   {
-//     this.state = {
-//       ipfsHash: '',
-//       contract: null,
-//       web3: null,
-//       buffer: null,
-//       account: null,
-//       ipfsHashes: [],
-//     };
-//   }
+onMounted(async () => {
+  // navigator.serviceWorker.ready.then((registration) => {
+  //   registration.active.postMessage(
+  //     JSON.stringify({
+  //       type: 'disconnect',
+  //       payload: 'disconnectPayload',
+  //     }),
+  //   );
+  // });
+  await loadBlockchainData();
+  await loadWeb3();
+});
 
-//   const captureFile = (event) => {
-//     event.preventDefault();
-//     const file = event.target.files[0];
-//     const reader = new window.FileReader();
-//     reader.readAsArrayBuffer(file);
-//     reader.onloadend = () => {
-//       this.setState({ buffer: Buffer.from(reader.result) });
-//       console.log('buffer', this.state.buffer);
-//     };
-//   };
+async function loadWeb3() {
+  if (window.ethereum) {
+    window.web3 = new Web3(window.ethereum);
+    await window.ethereum.enable();
+  } else if (window.web3) {
+    window.web3 = new Web3(window.ethereum);
+  } else {
+    window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+  }
+}
 
-//   const onSubmit = (event) => {
-//     event.preventDefault();
-//     console.log('Submitting file to ipfs...');
-//     ipfs.add(this.state.buffer, (error, result) => {
-//       console.log('Ipfs result', result);
-//       if (error) {
-//         console.error(error);
-//         return;
-//       }
-//       // this.state.hashes.push(result[0].hash);
+async function loadBlockchainData() {
+  web3.value = window.web3;
+  const accounts = await web3.value.eth.getAccounts();
+  // this.setState({ account: accounts[0] });
+  account.value = accounts[0];
+  const networkId = await web3.value.eth.net.getId();
+  const networkData = SimpleStorage.networks[networkId];
+  if (networkData) {
+    contract.value = web3.value.eth.Contract(SimpleStorage.abi, networkData.address);
+    // this.setState({ contract });
+    ipfsHash.value = await this.state.contract.methods.get().call();
+    this.setState({ ipfsHash });
+  } else {
+    window.alert('Smart contract not deployed to detected network.');
+  }
+}
 
-//       console.log(this.state.hashes);
-//       this.state.contract.methods
-//         .set(result[0].hash)
-//         .send({ from: this.state.account })
-//         .then(() => {
-//           return this.setState({ ipfsHash: result[0].hash });
-//         });
-//     });
-//   };
-// };
-// onMounted(async () => startServer());
+const captureFile = (event) => {
+  event.preventDefault();
+  const file = event.target.files[0];
+  const reader = new window.FileReader();
+  reader.readAsArrayBuffer(file);
+  reader.onloadend = () => {
+    buffer.value = Buffer.from(reader.result);
+    console.log('buffer', this.state.buffer);
+  };
+};
+
+const onSubmit = (event) => {
+  event.preventDefault();
+  console.log('Submitting file to ipfs...');
+  ipfs.add(buffer.value, (error, result) => {
+    console.log('Ipfs result', result);
+    if (error) {
+      console.error(error);
+      return;
+    }
+    // this.state.hashes.push(result[0].hash);
+
+    console.log(this.state.hashes);
+    contract.value.methods
+      .set(result[0].hash)
+      .send(account.value)
+      .then(() => {
+        return (ipfsHash.value = result[0].hash);
+      });
+  });
+};
 </script>
 
 <style scoped>

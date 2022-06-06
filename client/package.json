@@ -22,11 +22,11 @@
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "flowbite": "^1.4.4",
-    "ipfs-http-client": "^56.0.3",
+    "ipfs": "^0.63.1",
+    "ipfs-mini": "^1.1.5",
     "pinia": "^2.0.14",
     "pinia-plugin-persist": "^1.0.0",
     "tailwindcss-scrollbar": "^0.1.0",
-    "truffle": "^5.5.14",
     "vue": "^3.2.29",
     "vue3-smooth-scroll": "^0.8.1",
     "web3": "^1.7.3"
