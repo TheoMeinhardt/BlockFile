@@ -15,4 +15,14 @@ async function saveImage(req: Request, res: Response): Promise<void> {
   }
 }
 
-export { saveImage };
+async function getImages(req: Request, res: Response): Promise<void> {
+  const uid: number = Number(req.params.id);
+
+  if (!(await helpers.userExists(uid))) res.status(404).send('User not found!');
+  else {
+    const images: string[] = await db.getImageHashes(uid);
+    res.status(200).json(images);
+  }
+}
+
+export { saveImage, getImages };
