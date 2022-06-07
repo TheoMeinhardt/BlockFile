@@ -50,7 +50,9 @@
     <FooterBar class="mb-2"></FooterBar>
   </div>
 </template>
-
+<script>
+window.global = window;
+</script>
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
@@ -59,22 +61,21 @@ import FooterBar from '../components/FooterBar.vue';
 import useUserStore from '../stores/users.js';
 import { onMounted, ref } from 'vue';
 import Web3 from 'web3';
+// import Web3 from '@metamask/legacy-web3';
 import SimpleStorage from '../../../server/src/ipfs/src/abis/SimpleStorage.json';
+
+import process from 'process';
+import { Buffer } from 'buffer';
+import EventEmitter from 'events';
 
 import IPFS from 'ipfs-mini';
 const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
+window.Buffer = Buffer;
+window.process = process;
+window.EventEmitter = EventEmitter;
 // import ipfsClient from 'ipfs-http-client';
 // const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
-
-// const props = defineProps({
-//   ipfsHash: String,
-//   contract: null,
-//   web3: null,
-//   buffer: null,
-//   account: null,
-//   ipfsHashes: Array,
-// });
 
 const ipfsHash = ref('');
 const contract = ref();
@@ -97,32 +98,48 @@ onMounted(async () => {
   //   );
   // });
   await loadBlockchainData();
-  await loadWeb3();
+  await connectWallet();
 });
 
-async function loadWeb3() {
+async function connectWallet() {
   if (window.ethereum) {
-    window.web3 = new Web3(window.ethereum);
-    await window.ethereum.enable();
-  } else if (window.web3) {
-    window.web3 = new Web3(window.ethereum);
+    //check if Metamask is installed
+    try {
+      const address = await window.ethereum.enable(); //connect Metamask
+      const obj = {
+        connectedStatus: true,
+        status: '',
+        address: address,
+      };
+      return obj;
+    } catch (error) {
+      return {
+        connectedStatus: false,
+        status: '🦊 Connect to Metamask using the button on the top right.',
+      };
+    }
   } else {
-    window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+    return {
+      connectedStatus: false,
+      status: '🦊 You must install Metamask into your browser: https://metamask.io/download.html',
+    };
   }
 }
 
 async function loadBlockchainData() {
-  web3.value = window.web3;
-  const accounts = await web3.value.eth.getAccounts();
+  web3.value = new Web3(Web3.givenProvider);
+  const accounts = await window.ethereum.request({ method: 'eth_accounts' });
   // this.setState({ account: accounts[0] });
+  console.log(accounts);
   account.value = accounts[0];
-  const networkId = await web3.value.eth.net.getId();
+  const networkId = 5777;
+  console.log(networkId);
   const networkData = SimpleStorage.networks[networkId];
   if (networkData) {
-    contract.value = web3.value.eth.Contract(SimpleStorage.abi, networkData.address);
+    contract.value = new web3.value.eth.Contract(SimpleStorage.abi, networkData.address);
     // this.setState({ contract });
-    ipfsHash.value = await this.state.contract.methods.get().call();
-    this.setState({ ipfsHash });
+    ipfsHash.value = contract.value.methods.get().call();
+    // this.setState({ ipfsHash });
   } else {
     window.alert('Smart contract not deployed to detected network.');
   }
