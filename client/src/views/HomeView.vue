@@ -16,7 +16,7 @@
     <section id="upload">
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
       <div class="flex justify-center">
-        <DropZone @drop.prevent="captureFile()"></DropZone>
+        <DropZone @drop.prevent="captureFile"></DropZone>
       </div>
       <div class="flex justify-center">
         <button
@@ -144,12 +144,12 @@ async function loadBlockchainData() {
 
 const captureFile = (event) => {
   event.preventDefault();
-  const file = event.target.files[0];
+  const file = event.dataTransfer.files[0];
+  console.log(file);
   const reader = new window.FileReader();
   reader.readAsArrayBuffer(file);
   reader.onloadend = () => {
     buffer.value = Buffer.from(reader.result);
-    console.log('buffer', this.state.buffer);
   };
 };
 
