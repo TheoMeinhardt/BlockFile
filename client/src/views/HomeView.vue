@@ -16,13 +16,7 @@
     <section id="upload">
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">Upload your Files</h1>
       <div class="flex justify-center">
-        <div
-          @change="captureFile()"
-          class="bg-gray-200 border-black flex flex-col text-center border border-dashed rounded-md content-center mt-8 justify-center h-64 w-96"
-        >
-          <i class="fa-solid fa-cloud-arrow-up text-6xl"></i>
-          <h1 class="font-coolvetica text-3xl">drag & drop here</h1>
-        </div>
+        <DropZone @drop.prevent="captureFile()"></DropZone>
       </div>
       <div class="flex justify-center">
         <button
@@ -50,14 +44,17 @@
     <FooterBar class="mb-2"></FooterBar>
   </div>
 </template>
+
 <script>
 window.global = window;
 </script>
+
 <script setup>
 import NavBar from '../components/NavBar.vue';
 import AboutUs from '../components/AboutUs.vue';
 import UploadedFiles from '../components/UploadedFiles.vue';
 import FooterBar from '../components/FooterBar.vue';
+import DropZone from '../components/DropZone.vue';
 import useUserStore from '../stores/users.js';
 import { onMounted, ref } from 'vue';
 import Web3 from 'web3';
