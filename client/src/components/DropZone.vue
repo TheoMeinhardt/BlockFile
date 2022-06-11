@@ -47,6 +47,10 @@ const toggleActive = () => {
     border-radius: 6px;
   }
 
+  label:hover {
+    background-color: #60a5fa;
+  }
+
   input {
     display: none;
   }

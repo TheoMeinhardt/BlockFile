@@ -20,7 +20,7 @@
       </div>
       <div class="flex justify-center">
         <button
-          @click="onSubmit()"
+          @click="onSubmit"
           class="px-10 py-3 bg-blue-500 hover:bg-blue-400 rounded-md text-center mt-8 text-white text-1xl font-poppins"
         >
           Submit
