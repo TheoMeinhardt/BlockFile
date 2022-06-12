@@ -68,21 +68,21 @@ import EventEmitter from 'events';
 import IPFS from 'ipfs-mini';
 const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
+// import IPFS from 'ipfs-http-client';
+// const ipfs = IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+// import * as IPFS from 'ipfs-core';
+
 window.Buffer = Buffer;
 window.process = process;
 window.EventEmitter = EventEmitter;
-// import ipfsClient from 'ipfs-http-client';
-// const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 
 const ipfsHash = ref('');
 const contract = ref();
 const web3 = ref();
 const buffer = ref();
 const account = ref();
-// const ipfsHashes = ref([]);
+const resultHash = ref('');
 
-// const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
-// const IPFS = require('ipfs-mini');
 const userStore = useUserStore();
 
 onMounted(async () => {
@@ -145,32 +145,38 @@ async function loadBlockchainData() {
 const captureFile = (event) => {
   event.preventDefault();
   const file = event.dataTransfer.files[0];
+  file.value = file;
   console.log(file);
   const reader = new window.FileReader();
   reader.readAsArrayBuffer(file);
   reader.onloadend = () => {
     buffer.value = Buffer.from(reader.result);
+    console.log(buffer.value);
   };
 };
 
-const onSubmit = (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
   console.log('Submitting file to ipfs...');
+
   ipfs.add(buffer.value, (error, result) => {
+    resultHash.value = result;
+    console.log(resultHash.value);
     console.log('Ipfs result', result);
+    console.log(contract.value);
+    console.log(account.value);
+    
+    contract.value.methods
+      .set(result)
+      .send({ from: account.value })
+      .then(() => {
+        return (ipfsHash.value = result);
+      });
+    console.log('success');
     if (error) {
       console.error(error);
       return;
     }
-    // this.state.hashes.push(result[0].hash);
-
-    console.log(this.state.hashes);
-    contract.value.methods
-      .set(result[0].hash)
-      .send(account.value)
-      .then(() => {
-        return (ipfsHash.value = result[0].hash);
-      });
   });
 };
 </script>
