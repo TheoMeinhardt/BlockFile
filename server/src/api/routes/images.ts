@@ -10,6 +10,6 @@ const router = Router();
 router.get('/:id', asyncHandler(verify), asyncHandler(getImages));
 
 // Posts
-router.post('/:id', asyncHandler(verify), asyncHandler(saveImage));
+router.post('/:id', asyncHandler(saveImage));
 
 export default router;
