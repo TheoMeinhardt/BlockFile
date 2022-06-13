@@ -13,7 +13,7 @@
         >
       </div>
     </div>
-    <section id="upload">
+    <!-- <section id="upload">
       <h1 class="bg-white text-3xl font-poppins ml-32 mt-32 font-bold">
         Upload your Files
       </h1>
@@ -28,7 +28,7 @@
           Submit
         </button>
       </div>
-    </section>
+    </section> -->
     <iframe src="http://localhost:3006" class="w-full aspect-video ..."> </iframe>
     <div class="waveTwo w-full h-[55rem] py-32 font-bold text-white">
       <section id="uploaded">

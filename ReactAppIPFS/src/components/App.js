@@ -108,11 +108,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className='navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow'>
-          <p className='navbar-brand col-sm-3 col-md-2 mr-0'>BlockFile</p>
-          <p className='navbar-brand col-sm-3 col-md-2 mr-0'>{this.state.ipfsHash}</p>
+        {/* <nav id='navBar' className='navbar fixed-top bg-white flex-md-nowrap p-0'>
+          <p className='navbar-brand col-sm-3 col-md-2 m-2'>BlockFile</p>
+          <p className='navbar-brand col-sm-3 col-md-2 m-2'>{this.state.ipfsHash}</p>
           <p className='navbar-brand'>{this.state.account}</p>
-        </nav>
+        </nav> */}
         <br></br>
 
         <div className='container-fluid mt-5'>
@@ -134,7 +134,7 @@ class App extends Component {
                 <p>&nbsp;</p>
                 <h2>Upload Pictures</h2>
                 <form onSubmit={this.onSubmit}>
-                  <input type='file' onChange={this.captureFile} />
+                  <input className='form-control-file' type='file' onChange={this.captureFile} />
                   <input type='submit' />
                 </form>
               </div>
