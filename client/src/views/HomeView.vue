@@ -145,43 +145,43 @@ async function loadBlockchainData() {
   }
 }
 
-const captureFile = (event) => {
-  event.preventDefault();
-  const file = event.dataTransfer.files[0];
-  file.value = file;
-  console.log(file);
-  const reader = new window.FileReader();
-  reader.readAsArrayBuffer(file);
-  reader.onloadend = () => {
-    buffer.value = Buffer.from(reader.result);
-    console.log(buffer.value);
-  };
-};
+// const captureFile = (event) => {
+//   event.preventDefault();
+//   const file = event.dataTransfer.files[0];
+//   file.value = file;
+//   console.log(file);
+//   const reader = new window.FileReader();
+//   reader.readAsArrayBuffer(file);
+//   reader.onloadend = () => {
+//     buffer.value = Buffer.from(reader.result);
+//     console.log(buffer.value);
+//   };
+// };
 
-const onSubmit = async (event) => {
-  event.preventDefault();
-  console.log("Submitting file to ipfs...");
+// const onSubmit = async (event) => {
+//   event.preventDefault();
+//   console.log("Submitting file to ipfs...");
 
-  ipfs.add(buffer.value, (error, result) => {
-    resultHash.value = result;
-    console.log(resultHash.value);
-    console.log("Ipfs result", result);
-    console.log(contract.value);
-    console.log(account.value);
+//   ipfs.add(buffer.value, (error, result) => {
+//     resultHash.value = result;
+//     console.log(resultHash.value);
+//     console.log("Ipfs result", result);
+//     console.log(contract.value);
+//     console.log(account.value);
 
-    contract.value.methods
-      .set(result)
-      .send({ from: account.value })
-      .then(() => {
-        return (ipfsHash.value = result);
-      });
-    console.log("success");
-    if (error) {
-      console.error(error);
-      return;
-    }
-  });
-};
+//     contract.value.methods
+//       .set(result)
+//       .send({ from: account.value })
+//       .then(() => {
+//         return (ipfsHash.value = result);
+//       });
+//     console.log("success");
+//     if (error) {
+//       console.error(error);
+//       return;
+//     }
+//   });
+// };
 </script>
 
 <style scoped>

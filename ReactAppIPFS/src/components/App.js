@@ -125,14 +125,15 @@ class App extends Component {
                   width='100%'
                   height='100%'
                 /> */}
-                <img
+                {/* <img
                   src={`https://ipfs.infura.io/ipfs/${this.state.ipfsHash}`}
                   width='100%'
                   height='100%'
                   alt={this.state.ipfsHash}
-                />
+                /> */}
                 <p>&nbsp;</p>
                 <h2>Upload Pictures</h2>
+
                 <form onSubmit={this.onSubmit}>
                   <input className='form-control-file' type='file' onChange={this.captureFile} />
                   <input type='submit' />
